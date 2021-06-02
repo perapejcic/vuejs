@@ -8,7 +8,7 @@
         <th>Matching Status</th>
         <th>From Date</th>
         <th>To Date</th>
-        <th>Difference</th>
+        <th>Control result</th>
       </tr>
       <template v-for="item in items">
       <tr :key="item.id" @click="toggle(item.id)"
@@ -19,7 +19,7 @@
         <td>{{item.matching_status}}</td>
         <td>{{item.from_date}}</td>
         <td>{{item.to_date}}</td>
-        <td>{{item.diference}}</td>
+        <td>{{item.control_result}}</td>
       </tr>
       <tr :key="item.id" v-if="opened.includes(item.id)">
         <td colspan="2">Event Recorder:</td><td><strong>{{item.sql_query_1}}</strong></td>
@@ -47,7 +47,7 @@ export default {
         "Matching Status",
         "From Date",
         "To Date",
-        "Difference",
+        "Control result",
         "Details"
       ],
       items: [
@@ -58,7 +58,7 @@ export default {
           matching_status: "diff",
           from_date: "2021-05-05",
           to_date: "2021-05-06",
-          diference: "25",
+          control_result: "25",
           sql_query_1: "select * from tickets",
           sql_query_2: "select * from mozzart.ticket"
         },
@@ -69,7 +69,7 @@ export default {
           matching_status: "diff",
           from_date: "2021-05-05",
           to_date: "2021-05-06",
-          diference: "25",
+          control_result: "25",
           sql_query_1: "select * from bonuses",
           sql_query_2: "select * from mozzart.bonus"
         }
@@ -122,8 +122,8 @@ export default {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: center;
-  background-color: #fdb913;
-  color: black;
+  background-color: #F7B21D;
+  color: #0E1C41;
 }
 
 </style>

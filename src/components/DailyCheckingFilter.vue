@@ -12,10 +12,14 @@
         </select>
         <input type="checkbox" id="differnce" name="differnce" value="differnt" />
         <label for="different">Different</label>
+        <input type="checkbox" id="in_process" name="in_process" value="in_process" />
+        <label for="different">In process</label>
         <input type="checkbox" id="resolved" name="resolved" value="resolved" />
         <label for="vehicle2">Resolved</label>
         <input type="checkbox" id="matched" name="matched" value="matched" />
         <label for="vehicle3">Matched</label>
+        <input type="checkbox" id="all" name="all" value="all" />
+        <label for="vehicle3">All</label>
         <div style="padding-bottom: 20px">
           <span class="datepicker-toggle">
             <span class="datepicker-toggle-button"></span>
@@ -57,13 +61,14 @@ export default {
   padding: 10px 20px;
   margin-left: 40px;
   background-color: #fdb913;
-  border: 2px solid black;
+  border: 2px solid #0E1C41;
   color: black;
   cursor: pointer;
 }
 
 .form-inline input:hover {
-  background-color: royalblue;
+  background-color: #0E1C41; 
+  color: #fdb913;
 }
 
 .form-inline select {
@@ -71,7 +76,7 @@ export default {
   margin: 5px 100px 5px 0;
   padding: 10px;
   background-color: #fff;
-  border: 1px solid #ddd;
+  border: 1px solid #0E1C41;
 }
 
 @media (max-width: 800px) {

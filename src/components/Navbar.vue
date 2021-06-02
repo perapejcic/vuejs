@@ -1,12 +1,10 @@
 <template>
   <ul>
-    <li class="logo">
-      <a>
+    <h2 class="simple-text logo-normal">{{ title }}</h2>
+    <li class="logo">     
         <div class="logo-img">
           <img :src="imgLogo" alt />
-        </div>
-      </a>
-      <a class="simple-text logo-normal">{{ title }}</a>
+        </div>     
     </li>
     <li>
       <router-link to="/daily-checking">
@@ -50,21 +48,28 @@ ul {
   padding: 30px;
   width: 100%;
   height: 100%;
-  background-color: #0e1c42;
-  opacity: 0.8;
+  background-color: #0E1C41;
+  opacity: 1.0;
 }
 
 li a {
   display: block;
-  color: #fdb913;
+  color: #F7B21D;
   padding: 8px 16px;
   text-decoration: none;
 }
 
 /* Change the link color on hover */
 li a:hover {
-  background-color: #0e1c42;
+  background-color: #0E1C41;
   color: white;
-  border: 1px solid #ffff1a;
+  border: 1px solid #F7B21D;
+}
+
+h2 {
+  color: #F7B21D;
+  text-decoration-line: underline;
+  font-size: 100%;
+
 }
 </style>
