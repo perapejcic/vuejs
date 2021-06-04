@@ -3,9 +3,8 @@
     <DailyCheckingFilter />
     <table id="controls">
       <tr>
-        <th>Market</th>
         <th>Control Name</th>
-        <th>Matching Status</th>
+        <th>Operational database</th>
         <th>From Date</th>
         <th>To Date</th>
         <th>Control result</th>
@@ -14,16 +13,17 @@
       <tr :key="item.id" @click="toggle(item.id)"
         :class="{opened: opened.includes(item.id)}"
       >
-        <td>{{item.market}}</td>
         <td>{{item.control_name}}</td>
-        <td>{{item.matching_status}}</td>
+        <td>{{item.operationalDatabase}}</td>
         <td>{{item.from_date}}</td>
         <td>{{item.to_date}}</td>
         <td>{{item.control_result}}</td>
       </tr>
-      <tr :key="item.id" v-if="opened.includes(item.id)">
-        <td colspan="2">Event Recorder:</td><td><strong>{{item.sql_query_1}}</strong></td>
-        <td colspan="2">Amadeus:</td><td><strong>{{item.sql_query_2}}</strong></td>
+      <tr id="addpanel" :key="item.id" v-if="opened.includes(item.id)">
+        <td colspan="1">Event Recorder:</td>
+        <td>{{item.eventDatabaseQuery}}</td>
+        <td colspan="1">Amadeus:</td>
+        <td>{{item.operationalDatabaseQuery}}</td>
       </tr>
       </template>
     </table>
@@ -42,9 +42,8 @@ export default {
       active: false,
       opened: [],
       fields: [
-        "Market",
         "Control Name",
-        "Matching Status",
+        "Operational database",
         "From Date",
         "To Date",
         "Control result",
@@ -53,25 +52,23 @@ export default {
       items: [
         {
           id: 1,
-          market: "Roamnia",
-          control_name: "tickets",
-          matching_status: "diff",
+          control_name: "Ticket control",
+          operationalDatabase: "Amadeus",
           from_date: "2021-05-05",
           to_date: "2021-05-06",
-          control_result: "25",
-          sql_query_1: "select * from tickets",
-          sql_query_2: "select * from mozzart.ticket"
+          control_result: "DIFFERENT",
+          eventDatabaseQuery: "select * from tickets",
+          operationalDatabaseQuery: "select * from mozzart.ticket"
         },
         {
           id: 2,
-          market: "Roamnia",
-          control_name: "bonuses",
-          matching_status: "diff",
+          control_name: "Bonus control",
+          operationalDatabase: "Golden race",
           from_date: "2021-05-05",
           to_date: "2021-05-06",
-          control_result: "25",
-          sql_query_1: "select * from bonuses",
-          sql_query_2: "select * from mozzart.bonus"
+          control_result: "DIFFERENT",
+          eventDatabaseQuery: "select * from bonuses",
+          operationalDatabaseQuery: "select * from mozzart.bonus"
         }
       ]
     };
@@ -124,6 +121,9 @@ export default {
   text-align: center;
   background-color: #F7B21D;
   color: #0E1C41;
+}
+#addpanel{
+  box-sizing: content-box;
 }
 
 </style>
